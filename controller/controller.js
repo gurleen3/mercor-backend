@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
@@ -13,6 +13,7 @@ module.exports = {
         res.json({success:'Hello'})
     },
     GPT: async (req,res) => {
+        console.log("in backend")
         try {
             const {transcript} = req.body
             const {data} = await openai.createCompletion({
